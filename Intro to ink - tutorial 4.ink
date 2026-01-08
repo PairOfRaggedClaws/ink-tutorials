@@ -1,3 +1,31 @@
+// CHARACTER CONVERSATION - FULL VERSION
+// This is a final product, with fully written dialogue
+
+/*
+Character:
+- Tabitha Brimstone, she/her, ~ 30
+- Intro: She's got herself handled, when other people can't get their shit together she's got ZERO sympathy
+- Who They Are: A demon (tiefling?) train conductor with little bit of a temper
+- Motivation: chaos and her own fiery nature //must be stifled and kept under strict control at all costs//. (But she secretly loves it when she has rule-sanctioned excuse to bust out.)
+- Voice line: "Ticket, please. You //do// have your tickets?"
+- Defining details: 
+  - Spends a lot of time reining in her unruly, curly hair & is never satisfied with it
+  - Loves and raises orchids in her tiny city apartment
+
+~
+
+Outline:
+- Approaches player for their ticket
+  - Ask about her
+  -  Ask about tickets
+- Have to confess they might not have it & she starts to get MAD
+  - Can I buy one? (No)
+  - Can we work something out?  (No)
+  - Can I just refuse? (Not without consequences)
+- Stand up to go and see the ticket on the seat
+- Tabitha *immediately* recovers 
+*/
+
 /* 
     First, welcome to variables.
     This programming fundamental lets use store bits of useful information.
@@ -19,15 +47,20 @@ This tutorial models an interactive conversation or "dialogue tree", including a
 
 Once again, the best way to use this is to follow on both the left and right side in Inky.
 
+<i>Note for your assignment that the character is defined and the conversation is outlined on the left side as block comments!</i>
+
 * [Continue] -> conv_start
 
 === conv_start ===
+<center><b>The Conductor</b></center>
 "Ticket, please. You <i>do</i> have your ticket?"
 
 The woman, in her blue conductor's uniform, with its many, many brass buttons, glares down at you. The blue-brimmed hat sits atop her curly hair, behind two forward-pointing horns. 
 -> loop1
 
-== loop1_intro ===
+== loop1_repeat ===
+// this knot gets skipped over the first time
+// then provides a shorter line of intro text on return visits
 The conductor glowers, her hand held out for your ticket. 
 
 -> loop1
@@ -71,7 +104,7 @@ She furrows her brows...
 - ...and continues.
 "Not <i>opera</i> tickets or - or raffle tickets or tickets to the roving bestiary. <i>Train tickets.</i> For <i>this</i> train!"
 
-+ [Continue] -> loop1_intro
++ [Continue] -> loop1_repeat
 
 
 === loop1_whoareyou ===
@@ -81,14 +114,14 @@ She lifts her chin up and tugs down at her stiff blue uniform.
 
 + You notice small brass badge on it.[] The name emblazoned there: {conductor_name}.
 - "Do you mean to be... <i>impertinent</i>? I'm a conductor. And I am <i>here</i> to collect your ticket.
-+ [Um... okay then.] -> loop1_intro
++ [Um... okay then.] -> loop1_repeat
 
 
 === loop1_joke ===
 "Must be... around her somewhere," you say with a grin. Hoping it comes off at least a little funny.
 A glance up comfirms it very much did not.
 
-* [Oh well.] -> loop1_intro
+* [Oh well.] -> loop1_repeat
 
 
 === loop1_search_pockets ===
@@ -97,7 +130,7 @@ You check your pockets.
 
 She rolls her eyes.
 
-+ [Nope, not there.] -> loop1_intro
++ [Nope, not there.] -> loop1_repeat
 
 
 === loop1_search_bag ===
@@ -107,7 +140,7 @@ You keep going even after you're sure you won't find it.
 
 She clears her throat.
 
-+ [Not there either.] -> loop1_intro
++ [Not there either.] -> loop1_repeat
 
 
 === loop1_search_wallet ===
@@ -116,7 +149,7 @@ You pull out your wallet and leaf through the various bills and cards.
 
 She grimaces. Red sparks have appeared in her eyes.
 
-+ [Also not theere.] -> loop1_intro
++ [Also not theere.] -> loop1_repeat
 
 
 === ultimatum ===
@@ -124,7 +157,7 @@ She grimaces. Red sparks have appeared in her eyes.
 
 -> loop2
 
-=== loop2_intro ===
+=== loop2_repeat ===
 "Ticket, or I throw you off this train."
 -> loop2
 
@@ -139,13 +172,13 @@ She grimaces. Red sparks have appeared in her eyes.
     
     "No. You <i>cannot</i>. That is not how it works." Her eyes are ablaze. "There are rules. And we have to follow the rules. All of us. Every one. Whether we like it or not. And - and - the rules are, you are supposed to have a ticket <i>before</i> you board.
     ~ tried_options = tried_options + 1
-    + + "Oh, I see then." -> loop2_intro
+    + + "Oh, I see then." -> loop2_repeat
 + "What if I refuse?"
     "If you refuse..." she fumes through gritted teeth. "Then I will bodily lift you up and heave you off this train."
     ~ refused = true
     ~ tried_options = tried_options + 1
     You're about to ask if she'd really do that... When it strikes you that she could and positively would.
-    + + "Got it." -> loop2_intro
+    + + "Got it." -> loop2_repeat
 * {bargained == 0} "There must be some way to work this out." -> loop2_bargain
 * {bargained == 1} "There's no compromise or... other way...?" -> loop2_bargain
 * {tried_options >= 2} [Get up and go. (Advance)] -> loop2_getup
@@ -166,12 +199,12 @@ She grimaces. Red sparks have appeared in her eyes.
     
     "I <i>do</i> hope you mean <i>by giving me a ticket.</i>"
     ~ bargained = bargained + 1
-    + "Er, yes, I suppose!" -> loop2_intro
+    + "Er, yes, I suppose!" -> loop2_repeat
 - else:
     Her eyes are infernoes now and she bares her teeth, two sharp fangs jutting up from her lower lip.
     She doesn't even reply. She merely growls.
     ~ bargained = bargained + 1
-    + [On second thought...] -> loop2_intro
+    + [On second thought...] -> loop2_repeat
 }
 
 
