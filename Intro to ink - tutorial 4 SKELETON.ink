@@ -4,10 +4,10 @@
 /*
 Character:
 - Tabitha Brimstone, she/her, ~ 30
-- Intro: She's got herself handled, when other people can't get their shit together she's got ZERO sympathy
-- Who They Are: A demon (tiefling?) train conductor with little bit of a temper
-- Motivation: chaos and her own fiery nature //must be stifled and kept under strict control at all costs//. (But she secretly loves it when she has rule-sanctioned excuse to bust out.)
-- Voice line: "Ticket, please. You //do// have your tickets?"
+- Intro: She's got HERSELF handled, dammit; when other people can't get their shit together she's got ZERO sympathy.
+- Who They Are: A demon (tiefling?) train conductor with little sympathy and a short fuse
+- Motivation: chaos and her own fiery nature MUST be stifled and kept under strict control at all costs. (But she secretly loves it when she has rule-sanctioned excuse for outbursts.)
+- Voice line: "Ticket, please. You DO have your tickets?"
 - Defining details: 
   - Spends a lot of time reining in her unruly, curly hair & is never satisfied with it
   - Loves and raises orchids in her tiny city apartment
